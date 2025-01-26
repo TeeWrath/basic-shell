@@ -5,6 +5,7 @@
 import os
 import subprocess
 import shlex
+import platform
 
 
 def execute_command(command):
@@ -76,19 +77,27 @@ def psh_help():
         """Supports basic commands like
         - cd 
         - pwd 
-        -ls 
-        -help 
+        - ls 
+        - clear
+        - pookie
+        - help 
         and external programs.
         """
     )
+    
+def psh_clear():
+    """Clear the terminal screen."""
+    if platform.system() == "Windows":
+        os.system("cls")  # Windows uses 'cls'
+    else:
+        os.system("clear")  # Unix-based systems use 'clear'
 
 def psh_pookie():
     print(
-        """(\_/)  
+        """(\__/)  
 (•ㅅ•) 
  /   づ❤ """
     )
-
 
 def main():
     """Main loop for the shell."""
@@ -111,6 +120,8 @@ def main():
                 psh_help()
             elif inp == "pookie":
                 psh_pookie()
+            elif inp == "clear":
+                psh_clear()
             else:
                 execute_command(inp)
         except KeyboardInterrupt:
