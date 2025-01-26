@@ -73,7 +73,7 @@ def psh_ls():
 def psh_help():
     """Print help message."""
     print(
-        "psh: A simple Python shell.\n"
+        "pookie: A simple Python shell.\n"
         """Supports basic commands like
         - cd 
         - pwd 
