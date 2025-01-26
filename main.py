@@ -53,24 +53,64 @@ def psh_cd(path):
         print(f"cd: error: {e}")
 
 
+def psh_pwd():
+    """Print the current working directory."""
+    print(os.getcwd())
+
+
+def psh_ls():
+    """List the contents of the current directory."""
+    try:
+        contents = os.listdir(os.getcwd())
+        for item in contents:
+            print(item, end="  ")
+        print()  # Newline after listing
+    except Exception as e:
+        print(f"ls: error: {e}")
+
+
 def psh_help():
     """Print help message."""
-    print("psh: A simple Python shell.\nSupports basic commands like cd, help, and external programs.")
+    print(
+        "psh: A simple Python shell.\n"
+        """Supports basic commands like
+        - cd 
+        - pwd 
+        -ls 
+        -help 
+        and external programs.
+        """
+    )
+
+def psh_pookie():
+    print(
+        """(\_/)  
+(•ㅅ•) 
+ /   づ❤ """
+    )
 
 
 def main():
     """Main loop for the shell."""
     while True:
         try:
-            inp = input("$ ").strip()
+            inp = input("pookie$ ").strip()
             if not inp:
                 continue
             if inp == "exit":
                 break
             elif inp.startswith("cd "):
                 psh_cd(inp[3:].strip())
+            elif inp == "cd":
+                psh_cd("")  # Handle 'cd' without arguments
+            elif inp == "pwd":
+                psh_pwd()
+            elif inp == "ls":
+                psh_ls()
             elif inp == "help":
                 psh_help()
+            elif inp == "pookie":
+                psh_pookie()
             else:
                 execute_command(inp)
         except KeyboardInterrupt:
