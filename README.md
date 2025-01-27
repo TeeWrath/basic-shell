@@ -1,11 +1,11 @@
-# Basic Python Shell for linux
+# Pookie
+Basic Python Shell
 
-pookie: A simple Python shell.
-        Supports basic commands like
-        - cd 
-        - pwd 
-        - ls 
-        - clear
-        - pookie
-        - help 
-        and external programs.
+Supports basic commands like
+- cd 
+- pwd 
+- ls 
+- clear
+- pookie
+- help 
+and external programs.
